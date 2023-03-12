@@ -18,7 +18,16 @@ def index():
         return redirect(url_for("index", result=search_result))
 
     search_result = request.args.getlist("result")
+    # replace the, None with an empty string
+    print(search_result[0])
     search_result = [ast.literal_eval(x) for x in search_result]
+    for res in search_result:
+        if "name" not in res:
+            res["name"] = ""
+        if "CAS" in res:
+            res["CAS"] = [x for x in res["CAS"] if x is not None]
+        if "all_names" in res:
+            res["all_names"] = [x for x in res["all_names"] if x is not res["name"]]
 
     return render_template("index.html", result=search_result)
 
