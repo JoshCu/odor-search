@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .icon {
@@ -60,10 +60,12 @@ form {
 
 .teal-0 {
   background-color: #b2d8d83f;
+  color: rgb(213, 211, 211)
 }
 
 .teal-1 {
   background-color: #b2d8d8;
+  color: rgb(48, 78, 108)
 }
 
 .teal-2 {
@@ -83,4 +85,36 @@ form {
 .teal-5 {
   background-color: #004c4c;
   color: rgb(213, 211, 211);
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+.mask-custom {
+  backdrop-filter: blur(11px) !important;
+  background-color: rgba(22, 21, 21, 0.5) !important;
+}
+
+.mask-result {
+  backdrop-filter: blur(11px) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.search-gradient-custom {
+  /* fallback for old browsers */
+  background: #4f558a;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(31, 100, 102), rgb(19, 58, 125));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(48, 78, 108))
 }

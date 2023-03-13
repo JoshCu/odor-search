@@ -1,0 +1,16 @@
+<div class="container ">
+    <nav class="navbar navbar-expand-lg navbar-light m-2 rounded mask-result">
+        <div class="container-fluid">
+            <div class="d-flex w-100">
+                <img src="{{ url_for('static', filename='bird.png') }}" class="icon" />
+                <h3>Olfactory Database</h3>
+            </div>
+            <form class="flex-row flex-shrink-1 justify-content-end" action="/logout" method="get">
+                <div class>
+                    <button type="submit" action="/logout" method="post"
+                        class="btn btn-outline-secondary">logout</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
