@@ -1,5 +1,3 @@
-from functools import wraps
-from dotenv import load_dotenv
 import requests
 import os
 import json
@@ -7,7 +5,7 @@ import ast
 import openai
 from flask import Flask, g, redirect, render_template, request, url_for
 from flask_login import LoginManager, login_required, login_user, logout_user
-from models import User, authenticate_user
+from api.models import User, authenticate_user
 login_manager = LoginManager()
 
 app = Flask(__name__)
