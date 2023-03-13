@@ -2,7 +2,7 @@ import requests
 import os
 import json
 import ast
-import openai
+
 from flask import Flask, g, redirect, render_template, request, url_for
 from flask_login import LoginManager, login_required, login_user, logout_user
 from api.models import User, authenticate_user
@@ -12,7 +12,7 @@ app = Flask(__name__)
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
-openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = os.getenv("OPENAI_API_KEY")
 atlas_api_key = os.getenv("ATLAS_API_KEY")
 
 

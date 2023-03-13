@@ -10,13 +10,7 @@
 
 <body class="search-gradient-custom">
   {% include 'nav.html' %}
-  <form action="/" method="post">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" name="search_term" placeholder="search anything" required
-        aria-label="search input" aria-describedby="button-addon2" />
-      <button class="btn btn-outline-light" type="submit" id="button-addon2">Search</button>
-    </div>
-  </form>
+
   {% if result %}
   {% block results %}{% endblock %}
   {% endif %}

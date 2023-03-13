@@ -22,12 +22,6 @@ input {
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-}
 
 .icon {
   width: 34px;
