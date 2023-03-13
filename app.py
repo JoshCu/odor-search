@@ -19,17 +19,23 @@ def index():
 
     search_result = request.args.getlist("result")
     # replace the, None with an empty string
-    print(search_result[0])
     search_result = [ast.literal_eval(x) for x in search_result]
     for res in search_result:
         if "name" not in res:
-            res["name"] = ""
+            if "IUPACName" in res:
+                res["name"] = res["IUPACName"][0]
+            elif "all_names" in res:
+                res["name"] = res["all_names"][0]
+            elif "IsomericSmiles" in res:
+                res["name"] = res["IsomericSmiles"]
+            else:
+                res["name"] = "No name found"
         if "CAS" in res:
             res["CAS"] = [x for x in res["CAS"] if x is not None]
         if "all_names" in res:
-            res["all_names"] = [x for x in res["all_names"] if x is not res["name"]]
+            res["all_names"] = [x for x in res["all_names"] if x != res["name"]]
 
-    return render_template("index.html", result=search_result)
+    return render_template("results.html", result=search_result)
 
 
 def search_all(term):
