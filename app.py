@@ -1,16 +1,35 @@
+from functools import wraps
 from dotenv import load_dotenv
 import requests
 import os
 import json
 import ast
 import openai
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, g, redirect, render_template, request, url_for
+from flask_login import LoginManager, login_required, login_user, logout_user
+from models import User, authenticate_user
+login_manager = LoginManager()
 
 app = Flask(__name__)
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 openai.api_key = os.getenv("OPENAI_API_KEY")
+atlas_api_key = os.getenv("ATLAS_API_KEY")
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    print(user_id)
+    if user_id is None:
+        return None
+    if user_id != str(os.getenv("UID")):
+        return None
+    return (User(user_id, str(os.getenv("USER")), str(os.getenv("USER"))))
 
 
 @app.route("/", methods=("GET", "POST"))
+@login_required
 def index():
     if request.method == "POST":
         term = request.form["search_term"]
@@ -40,7 +59,7 @@ def index():
 
 def search_all(term):
     # load the environment variables
-    atlas_api_key = os.environ.get("ATLAS_API_KEY")
+
     url = "https://data.mongodb-api.com/app/data-dpfbx/endpoint/odor_search"
 
     payload = {"search_term": term}
@@ -48,3 +67,27 @@ def search_all(term):
 
     response = requests.request("POST", url, headers=headers, data=payload)
     return json.loads(response.text)
+
+
+@app.route("/login", methods=("GET", "POST"))
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        user = User(str(os.getenv("UID")), username, password)
+        print(user)
+        login_success = authenticate_user(user)
+        print(login_success)
+        if login_success:
+            login_user(user)
+            return redirect(url_for("index"))
+        else:
+            return redirect(url_for("login"))
+    return render_template("login.html")
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("login"))
