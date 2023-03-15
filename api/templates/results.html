@@ -4,7 +4,8 @@
     {% for item in result %}
     <div class="d-flex container rounded-3 teal-0 ms-auto mt-2 p-2">
         <div class="w-100">
-            <h4 class="container pt-1">{{ item.name }}</h4>
+            <h4 class="container pt-1"><a class="link-light" href="chemical?CID={{ item.CID }}">{{ item.name }}</a>
+            </h4>
             <hr>
 
             {% if item.IUPACName %}

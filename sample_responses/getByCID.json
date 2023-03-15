@@ -1,0 +1,178 @@
+{
+    "_id": "640bee530db7b339918d0f9d",
+    "CID": 61403,
+    "CAS": [
+        "7493-57-4"
+    ],
+    "TGSC_ID": [
+        1018151
+    ],
+    "name": "(2-(1-propoxyethoxy)ethyl)benzene",
+    "IsomericSmiles": [],
+    "IUPACName": [
+        "2-(1-propoxyethoxy)ethylbenzene"
+    ],
+    "all_odor": {
+        "arctander_1960_fixed": [
+            [
+                "powerful",
+                "ethereal",
+                "green",
+                "herbal",
+                "and",
+                "leafy",
+                "odor",
+                "and",
+                "very",
+                "natural",
+                "character"
+            ]
+        ],
+        "sharma_2021a": [
+            [
+                "hyacinth",
+                "reseda",
+                "leafy",
+                "floral",
+                "green",
+                "lilac",
+                "herbaceous",
+                "sweet pea",
+                "ethereal"
+            ]
+        ],
+        "leffingwell_fixed": [
+            [
+                "odor",
+                "green",
+                "wine",
+                "taste"
+            ]
+        ],
+        "sharma_2021b": [
+            [
+                "Aromatic",
+                "Herbal"
+            ],
+            [
+                "Chemical",
+                "Hydrocarbon",
+                "Ether"
+            ],
+            [
+                "Floral",
+                "Floral"
+            ],
+            [
+                "Floral",
+                "Lilac"
+            ],
+            [
+                "Food",
+                "Vegetable"
+            ],
+            [
+                "Fragrant",
+                "Floral"
+            ],
+            [
+                "Fragrant",
+                "Herbal"
+            ],
+            [
+                "Fragrant",
+                "Sweet"
+            ],
+            [
+                "Fragrant",
+                "Fruity",
+                "Green"
+            ],
+            [
+                "Green",
+                "Green"
+            ],
+            [
+                "Herbaceous",
+                "Herbal"
+            ],
+            [
+                "Lemon",
+                "Sweet"
+            ],
+            [
+                "Minty",
+                "Sweet"
+            ],
+            [
+                "Nature",
+                "Floral"
+            ],
+            [
+                "Non-citrusfruity",
+                "Sweet"
+            ],
+            [
+                "Plants",
+                "Reseda"
+            ],
+            [
+                "Sweet",
+                "Sweet"
+            ],
+            [
+                "Terpenes",
+                "Pine",
+                "Lemon",
+                "Sweet"
+            ],
+            [
+                "Vegetables",
+                "Pea"
+            ],
+            [
+                "Vegetation",
+                "Herbal"
+            ],
+            [
+                "Vegetation",
+                "Hyacinth"
+            ],
+            [
+                "Vegetation",
+                "Leafy"
+            ],
+            [
+                "Woody",
+                "Resinous",
+                "Herbal"
+            ]
+        ],
+        "goodscents_fixed": [
+            [
+                "green",
+                "reseda",
+                "leafy",
+                "hyacinth",
+                "herbal"
+            ]
+        ],
+        "aromadb": [
+            [
+                "leafy"
+            ]
+        ],
+        "ifra_2019": [
+            [
+                "Floral",
+                "Green",
+                "Hyacinth"
+            ]
+        ]
+    },
+    "Count": 29,
+    "all_names": [
+        "(2-(1-propoxyethoxy)ethyl)benzene",
+        "ACETALDEHYDE PHENYLETHYL-n-PROPYLACETAL"
+    ]
+}

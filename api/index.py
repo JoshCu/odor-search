@@ -67,6 +67,22 @@ def search_all(term):
     return json.loads(response.text)
 
 
+@app.route("/chemical", methods=("GET", "POST"))
+def chemical_details():
+
+    CID = request.args.getlist("CID")
+
+    url = "https://data.mongodb-api.com/app/data-dpfbx/endpoint/getByCID"
+    payload = {"search_term": CID}
+    headers = {'api-key': atlas_api_key}
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    json_response = json.loads(response.text)
+    print(json_response)
+    return render_template("chemical.html", chemical = json_response)
+
+
+
 @app.route("/login", methods=("GET", "POST"))
 def login():
     if request.method == "POST":
