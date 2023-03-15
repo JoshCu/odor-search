@@ -6,6 +6,7 @@ import ast
 from flask import Flask, g, redirect, render_template, request, url_for
 from flask_login import LoginManager, login_required, login_user, logout_user
 from api.models import User, authenticate_user
+from api.openaiAPI import summarise_odor
 login_manager = LoginManager()
 
 app = Flask(__name__)
@@ -18,7 +19,6 @@ atlas_api_key = os.getenv("ATLAS_API_KEY")
 
 @login_manager.user_loader
 def load_user(user_id):
-    print(user_id)
     if user_id is None:
         return None
     if user_id != str(os.getenv("UID")):
@@ -69,6 +69,11 @@ def search_all(term):
 
 @app.route("/chemical", methods=("GET", "POST"))
 def chemical_details():
+    if request.method == "POST":
+        CID = request.args.getlist("CID")
+        get_ai_odor = True
+        print(url_for("chemical_details", CID=CID, get_ai_odor=get_ai_odor))
+        return redirect(url_for("chemical_details", CID=CID, get_ai_odor=get_ai_odor))
 
     CID = request.args.getlist("CID")
 
@@ -78,8 +83,16 @@ def chemical_details():
 
     response = requests.request("POST", url, headers=headers, data=payload)
     json_response = json.loads(response.text)
-    print(json_response)
-    return render_template("chemical.html", chemical = json_response)
+
+    get_ai_odor = request.args.getlist("get_ai_odor")
+    summarised_odor = None
+    if get_ai_odor and "all_odor" in json_response:
+            summarised_odor = summarise_odor(json_response["all_odor"])
+
+            
+        
+    
+    return render_template("chemical.html", chemical = json_response, ai_odor = summarised_odor)
 
 
 
@@ -89,9 +102,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         user = User(str(os.getenv("UID")), username, password)
-        print(user)
         login_success = authenticate_user(user)
-        print(login_success)
         if login_success:
             login_user(user)
             return redirect(url_for("index"))
