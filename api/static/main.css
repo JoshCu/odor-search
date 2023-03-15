@@ -112,3 +112,55 @@ form {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(48, 78, 108))
 }
+
+.login-gradient {
+  /* background: linear-gradient(306deg, #245a66, #3a2466, #5d2466, #4c9ab2, #4cb298); */
+  background: linear-gradient(306deg, #3594aa, #5f38ae, #5d2466, rgba(106, 17, 203, 1), #4c9ab2, #4cb298);
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 60s ease infinite;
+  -moz-animation: AnimationName 60s ease infinite;
+  animation: AnimationName 60s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 65%
+  }
+
+  50% {
+    background-position: 100% 36%
+  }
+
+  100% {
+    background-position: 0% 65%
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 65%
+  }
+
+  50% {
+    background-position: 100% 36%
+  }
+
+  100% {
+    background-position: 0% 65%
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 65%
+  }
+
+  50% {
+    background-position: 100% 36%
+  }
+
+  100% {
+    background-position: 0% 65%
+  }
+}
